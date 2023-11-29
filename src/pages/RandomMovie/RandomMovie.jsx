@@ -31,14 +31,15 @@ const RandomMovie = () => {
     }, [])
 
     return (
-        <div>
+        <div className="movies-container">
             <h1>
             {random.title}
             </h1>
             <img src={random.imageUrl}/>
             <p>{random.genre}</p> 
-            <p> {random.adult}</p>
-            <p>{random.overview}</p>  
+            {random.adult ? "😚" : "✔"}
+            <p>Plot: {random.overview}</p>  
+            <p>{random.releaseDate}</p>  
         </div>
     )
 }

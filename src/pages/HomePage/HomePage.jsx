@@ -1,9 +1,17 @@
 import "./HomePage.css";
+import { useNavigate } from "react-router-dom";
 
-function HomePage() {
+
+const HomePage= () => {
+  const navigate = useNavigate()
+  const handleClick= () => {
+    navigate("/RandomMovie")
+    console.log("HI!!!")
+    }
+  
   return (
     <div className="the-big-button-container">
-      <button className="the-big-button" >Push!</button>
+      <button onClick={handleClick} className="the-big-button" >Push!</button>
     </div>
   );
 }

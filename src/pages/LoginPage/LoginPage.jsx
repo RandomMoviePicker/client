@@ -45,22 +45,22 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="login-page">
+      
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input className= "email-login" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
-        <input
+        <input className="password-login"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button className="login-button" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

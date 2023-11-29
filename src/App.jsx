@@ -18,11 +18,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
-      <MoviesList list={list} />
+<Random
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/list" element={<MoviesList list={list} /> }/>
 
         <Route
           path="/profile"

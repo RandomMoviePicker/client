@@ -1,10 +1,6 @@
-import {useState, useEffect} from "react";
-
 const MoviesList = (props) =>{
     const {list, setlist} = props;
     
-
-
 
     return(
         <div className="moviesList">

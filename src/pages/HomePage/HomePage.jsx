@@ -2,8 +2,8 @@ import "./HomePage.css";
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home page</h1>
+    <div className="the-big-button-container">
+      <button className="the-big-button" >Push!</button>
     </div>
   );
 }

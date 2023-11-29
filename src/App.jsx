@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import {useState} from "react";
 
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -9,11 +10,16 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import MoviesList from "./pages/MoviesList/MoviesList";
 
 function App() {
+  const [list, setList] = useState([]);
+
   return (
     <div className="App">
       <Navbar />
+
+      <MoviesList list={list} />
 
       <Routes>
         <Route path="/" element={<HomePage />} />

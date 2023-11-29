@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import MoviesList from "./pages/MoviesList/MoviesList";
+import RandomMovie from "./pages/RandomMovie/RandomMovie";
 
 function App() {
   const [list, setList] = useState([]);
@@ -31,6 +32,13 @@ function App() {
               <ProfilePage />
             </IsPrivate>
           }
+        />
+
+        <Route 
+        path ="/RandomMovie"
+        element={
+          <RandomMovie/>
+        }
         />
 
         <Route

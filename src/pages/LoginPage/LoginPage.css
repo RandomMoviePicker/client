@@ -1,0 +1,16 @@
+.login-page{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button{
+margin-top: 25px;
+}

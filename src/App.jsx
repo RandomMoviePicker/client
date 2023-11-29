@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import RandomMovie from "./pages/RandomMovie/RandomMovie";
+import Filters from "./components/Filters/Filters"
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/filters" element={<Filters/>}/>
       </Routes>
     </div>
   );

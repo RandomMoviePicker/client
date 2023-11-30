@@ -1,17 +1,31 @@
 import "./movieslist.css";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+const URL = import.meta.env.VITE_SERVER_URL;
 
 const MoviesList = () => {
-    const { user } = AuthContext;
+    const { user } = useContext(AuthContext);
+    const userId = user._id;
+    const [favourites, setFavourites] = useState([]);
+
 
     const getFavourites = async() =>{
-        const data = await fetch ()
+        const data = await fetch(URL + `/movies/favourites/${userId}`);
+        const dataJson = await data.json();
+        console.log(dataJson)//
+        setFavourites(dataJson);
     }
+useEffect(()=>{
+    getFavourites();
 
+
+},[])
 
     return (
-        <div className="moviesList">
-            {list.map((eachMovie) => {
+       
+       <div className="moviesList">
+            {favourites.map((eachMovie) => {
                 return (
                     <div className="movie-card" key={eachMovie._id}>
                         <h1 className="title">{eachMovie.title}</h1>

@@ -14,16 +14,16 @@ import MoviesList from "./pages/MoviesList/MoviesList";
 import RandomMovie from "./pages/RandomMovie/RandomMovie";
 
 function App() {
-  const [list, setList] = useState([]);
+  
 
   return (
     <div className="App">
       <Navbar />
-<Random
+     
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/list" element={<MoviesList list={list} /> }/>
+        <Route path="/list" element={<MoviesList /> }/>
 
         <Route
           path="/profile"

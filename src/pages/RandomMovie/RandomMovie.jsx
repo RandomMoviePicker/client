@@ -3,19 +3,17 @@ const URL = import.meta.env.VITE_SERVER_URL
 
 
 
-const RandomMovie = () => {
+const RandomMovie = (props) => {
     const [random, setRandom] = useState("")
-    const [movieList, setMovieList] = useState([])
 
     const getMovies = async () => {
         try {
 
-            const response = await fetch(URL + "/movies/")
+            const response = await fetch(URL + "/movies/randomMovie")
             const responseJson = await response.json()
-            setMovieList(responseJson)
-            const randomIndex = Math.floor(Math.random() * responseJson.length)
-            console.log(responseJson[randomIndex])
-            setRandom(responseJson[randomIndex])
+            console.log(responseJson,responseJson[0])
+            setRandom(responseJson[0])
+            
 
         } catch (error) {
             console.error(error)
@@ -28,17 +26,20 @@ const RandomMovie = () => {
     useEffect(() => {
         getMovies()
 
-    }, [])
+        
+
+    }, [])  
 
     return (
-        <div>
+        <div className="movies-container">
             <h1>
             {random.title}
             </h1>
             <img src={random.imageUrl}/>
             <p>{random.genre}</p> 
-            <p> {random.adult}</p>
-            <p>{random.overview}</p>  
+            {random.adult ? "😚" : "✔"}
+            <p>Plot: {random.overview}</p>  
+            <p>{random.releaseDate}</p>  
         </div>
     )
 }

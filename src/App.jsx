@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {useState} from "react";
+import AllPlaylists from "./pages/AllPlaylistsPage/AllPlaylists";
 
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/PlaylistsForm/playlistsForm";
@@ -15,7 +16,7 @@ import RandomMovie from "./pages/RandomMovie/RandomMovie";
 import Filters from "./components/Filters/Filters"
 
 function App() {
-  
+  //const [selectedPlaylist, setSelectedPlaylist] = useState("favourites");
 
   return (
     <div className="App">
@@ -25,8 +26,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<MoviesList /> }/>
-        <Route path="/favourites" element={<MoviesList /> }/>
-
+        <Route path="/allPlaylists" element={<AllPlaylists /> }/>
+        
         <Route
           path="/playlists"
           element={

@@ -16,7 +16,7 @@ const handleInputChange = (event) =>{
 const handleFormSubmit = async(event) =>{
   event.preventDefault();
   try{
-    await fetch(URL + "/movies/createPlaylist", {
+    await fetch(URL + "/playlists/create", {
       method: "POST",
       headers: {
         "Content-Type":"application/json",

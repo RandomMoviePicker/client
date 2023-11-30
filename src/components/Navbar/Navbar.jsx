@@ -14,8 +14,8 @@ function Navbar() {
         <button>Home</button>
       </Link>
       
-      <Link to="/favourites">
-        <button>favourites♥</button>
+      <Link to="/allPlaylists">
+        <button>My ♥</button>
       </Link>
       <Link to="/filters">
         <button>filter</button>

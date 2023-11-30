@@ -4,18 +4,25 @@ import { useState } from 'react'
 const Filters = () =>{
     const [genresArr, setGenresArr] = useState(genres);
 
+    const handleChange= (event) =>{
+        // const value = event
+        const value = event.target.value
+        
+
+        console.log("check", value);
+    }
     return(
         <>
             <h1>filters</h1>
             {
                 genresArr.map((eachGenre)=>{
                     return(
-                        <>
-                        <label>
-                            <input type="checkbox"  />
-                            {eachGenre.name}
-                        </label>
-                        </>
+                        <div key={eachGenre.id} >
+                            <label >
+                                <input value={eachGenre.name} type="checkbox" onChange={(event)=>handleChange(event)} />
+                                {eachGenre.name}
+                            </label>
+                        </div>
                     )
                 })
             }

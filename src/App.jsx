@@ -11,7 +11,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import MoviesList from "./pages/MoviesList/MoviesList";
 import RandomMovie from "./pages/RandomMovie/RandomMovie";
 import Filters from "./components/Filters/Filters"
 
@@ -25,7 +24,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/list" element={<MoviesList /> }/>
+        
         <Route path="/allPlaylists" element={<AllPlaylists /> }/>
         
         <Route

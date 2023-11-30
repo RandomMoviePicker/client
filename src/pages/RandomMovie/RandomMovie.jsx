@@ -6,8 +6,10 @@ import { AuthContext } from "../../context/auth.context";
 
 const RandomMovie = () => {
     const { user } = useContext(AuthContext);
-    const userId = user._id;
-
+    const userId = null;
+    if(user){
+        const userId = user._id;////////////////////////////////
+    }
     const [random, setRandom] = useState("")
 
     const getMovies = async () => {
@@ -16,7 +18,7 @@ const RandomMovie = () => {
             const response = await fetch(URL + "/movies/randomMovie")
             const responseJson = await response.json()
             setRandom(responseJson[0])
-            
+            console.log(random)////////////////////////////////null
 
         } catch (error) {
             console.error(error)
@@ -57,8 +59,9 @@ const RandomMovie = () => {
             {random.adult ? "😚" : "✔"}
             <p>Plot: {random.overview}</p>  
             <p>{random.releaseDate}</p>  
+            {user &&    //////////////////////////////////////////////////////////////////77
             <button onClick={() => addToFavourites(random._id)}>♥</button>
-
+            }
         </div>
     )
 }

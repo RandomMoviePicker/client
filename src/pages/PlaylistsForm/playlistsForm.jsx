@@ -8,7 +8,7 @@ const PlaylistsForm = () => {
   const { user } = useContext(AuthContext);
   const userId = user._id;
   const [name , setName] = useState("");
-
+console.log(user)
 const handleInputChange = (event) =>{
   const currentValue = event.target.value;
   setName(currentValue);

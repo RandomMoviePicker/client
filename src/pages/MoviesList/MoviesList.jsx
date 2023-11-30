@@ -10,21 +10,36 @@ const MoviesList = () => {
     const [favourites, setFavourites] = useState([]);
 
 
-    const getFavourites = async() =>{
+    const getFavourites = async () => {
         const data = await fetch(URL + `/movies/favourites/${userId}`);
         const dataJson = await data.json();
         console.log(dataJson)//
         setFavourites(dataJson);
     }
-useEffect(()=>{
-    getFavourites();
+    const addToFavourites = async (id) => {
+        const movieId = id;
+        try {
+            await fetch(URL + "/favourites", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ movieId, userId })
+            })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+    useEffect(() => {
+        getFavourites();
 
 
-},[])
+    }, [])
 
     return (
-       
-       <div className="moviesList">
+
+        <div className="moviesList">
             {favourites.map((eachMovie) => {
                 return (
                     <div className="movie-card" key={eachMovie._id}>
@@ -38,6 +53,7 @@ useEffect(()=>{
 
                         <p className="overview">{eachMovie.overview}</p>
                         <h2 className="release">{eachMovie.releaseDate}</h2>
+                        <button onClick={() => addToFavourites(eachMovie._id)}>♥</button>
                     </div>
                 )
             })}

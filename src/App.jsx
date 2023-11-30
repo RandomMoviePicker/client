@@ -24,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<MoviesList /> }/>
+        <Route path="/favourites" element={<MoviesList /> }/>
 
         <Route
           path="/profile"

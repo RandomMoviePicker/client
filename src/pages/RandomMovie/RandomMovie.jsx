@@ -3,7 +3,7 @@ const URL = import.meta.env.VITE_SERVER_URL
 
 
 
-const RandomMovie = (props) => {
+const RandomMovie = () => {
     const [random, setRandom] = useState("")
 
     const getMovies = async () => {

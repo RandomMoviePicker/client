@@ -1,8 +1,12 @@
 import "./movieslist.css";
+import { AuthContext } from "../../context/auth.context";
 
-const MoviesList = (props) => {
-    const { list } = props;
-//probably do a fetch to get the user playlist (we need to send the user as a prop?)
+const MoviesList = () => {
+    const { user } = AuthContext;
+
+    const getFavourites = async() =>{
+        const data = await fetch ()
+    }
 
 
     return (

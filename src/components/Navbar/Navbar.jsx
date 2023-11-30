@@ -13,6 +13,13 @@ function Navbar() {
       <Link to="/">
         <button>Home</button>
       </Link>
+      
+      <Link to="/favourites">
+        <button>favourites♥</button>
+      </Link>
+      <Link to="/filters">
+        <button>filter</button>
+      </Link>
 
       {isLoggedIn && (
         <>

@@ -12,6 +12,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import MoviesList from "./pages/MoviesList/MoviesList";
 import RandomMovie from "./pages/RandomMovie/RandomMovie";
+import Filters from "./components/Filters/Filters"
 
 function App() {
   
@@ -58,6 +59,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/filters" element={<Filters/>}/>
       </Routes>
     </div>
   );

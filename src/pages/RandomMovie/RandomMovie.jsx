@@ -5,17 +5,15 @@ const URL = import.meta.env.VITE_SERVER_URL
 
 const RandomMovie = () => {
     const [random, setRandom] = useState("")
-    const [movieList, setMovieList] = useState([])
 
     const getMovies = async () => {
         try {
 
-            const response = await fetch(URL + "/movies/")
+            const response = await fetch(URL + "/movies/randomMovie")
             const responseJson = await response.json()
-            setMovieList(responseJson)
-            const randomIndex = Math.floor(Math.random() * responseJson.length)
-            console.log(responseJson[randomIndex])
-            setRandom(responseJson[randomIndex])
+            console.log(responseJson,responseJson[0])
+            setRandom(responseJson[0])
+            
 
         } catch (error) {
             console.error(error)

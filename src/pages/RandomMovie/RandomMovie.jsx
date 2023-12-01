@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 const URL = import.meta.env.VITE_SERVER_URL
-
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
 
 
 const RandomMovie = () => {
+    const { user } = useContext(AuthContext);
+    const userId = user._id;
+
     const [random, setRandom] = useState("")
 
     const getMovies = async () => {
@@ -11,7 +15,6 @@ const RandomMovie = () => {
 
             const response = await fetch(URL + "/movies/randomMovie")
             const responseJson = await response.json()
-            console.log(responseJson,responseJson[0])
             setRandom(responseJson[0])
             
 
@@ -21,7 +24,21 @@ const RandomMovie = () => {
 
     }
 
-
+    const addToFavourites = async (id) => {
+        const movieId = id;
+        try {
+            await fetch(URL + "/movies/favourites", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ movieId, userId })
+            })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
 
     useEffect(() => {
         getMovies()
@@ -38,7 +55,9 @@ const RandomMovie = () => {
             <img src={random.imageUrl}/>
             <p> Genre: {random.genre?.join(" / ")}</p> 
             <p>Plot: {random.overview}</p>  
-            <p>Release Date: {random.releaseDate}</p>  
+            <p>{random.releaseDate}</p>  
+            <button onClick={() => addToFavourites(random._id)}>♥</button>
+
         </div>
     )
 }

@@ -59,7 +59,7 @@ const MoviesList = () => {
     return (
 
         <div className="moviesList">
-            {movies?.map((eachMovie) => {
+            {movies.map((eachMovie) => {
                 return (
                     <div className="movie-card" key={eachMovie._id}>
                         <h1 className="title">{eachMovie.title}</h1>

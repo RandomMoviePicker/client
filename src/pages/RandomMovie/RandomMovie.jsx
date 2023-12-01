@@ -55,8 +55,7 @@ const RandomMovie = () => {
             {random.title}
             </h1>
             <img src={random.imageUrl}/>
-            <p>{random.genre}</p> 
-            {random.adult ? "😚" : "✔"}
+            <p> Genre: {random.genre?.join(" / ")}</p> 
             <p>Plot: {random.overview}</p>  
             <p>{random.releaseDate}</p>  
             {user &&    //////////////////////////////////////////////////////////////////77

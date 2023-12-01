@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { useParams } from "react-router-dom";
+import SmallCard from "../../components/SmallCard/SmallCard";
 
 const URL = import.meta.env.VITE_SERVER_URL;
 
@@ -61,20 +62,22 @@ const MoviesList = () => {
         <div className="moviesList">
             {movies.map((eachMovie) => {
                 return (
-                    <div className="movie-card" key={eachMovie._id}>
-                        <h1 className="title">{eachMovie.title}</h1>
-                        <img className="cover-img" src={eachMovie.imageUrl} alt={eachMovie.title} />
-                        {eachMovie.genre?.map((eachGenre, index) => {
-                            return (
-                                <h1 key={index}>{eachGenre}</h1>
-                            )
-                        })}
+                    <SmallCard key={eachMovie._id} eachMovie={eachMovie} addToFavourites={addToFavourites} deleteFromPlaylist={deleteFromPlaylist} />
 
-                        <p className="overview">{eachMovie.overview}</p>
-                        <h2 className="release">{eachMovie.releaseDate}</h2>
-                        <button onClick={() => addToFavourites(eachMovie._id)}>♥</button>
-                        <button onClick={() => deleteFromPlaylist(eachMovie._id)}>🗑</button>
-                    </div>
+                    // <div className="movie-card" key={eachMovie._id}>
+                    //     <h1 className="title">{eachMovie.title}</h1>
+                    //     <img className="cover-img" src={eachMovie.imageUrl} alt={eachMovie.title} />
+                    //     {eachMovie.genre?.map((eachGenre, index) => {
+                    //         return (
+                    //             <h1 key={index}>{eachGenre}</h1>
+                    //         )
+                    //     })}
+
+                    //     <p className="overview">{eachMovie.overview}</p>
+                    //     <h2 className="release">{eachMovie.releaseDate}</h2>
+                    //     <button onClick={() => addToFavourites(eachMovie._id)}>♥</button>
+                    //     <button onClick={() => deleteFromPlaylist(eachMovie._id)}>🗑</button>
+                    // </div>
                 )
             })}
         </div>

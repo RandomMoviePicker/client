@@ -15,11 +15,15 @@ const MoviesList = () => {
 
 
     const getPlaylistMovies = async () => {
-        const data = await fetch(URL + `/playlists/${nameList}/${userId}`);
-        const dataJson = await data.json();
-        setMovies(dataJson);
+        try {
+            const data = await fetch(URL + `/playlists/${nameList}/${userId}`);
+            const dataJson = await data.json();
+            setMovies(dataJson);
+        } catch (error) {
+            console.log(error)
+        }
     }
-    
+
     const addToFavourites = async (id) => {
         const movieId = id;
         try {
@@ -35,6 +39,17 @@ const MoviesList = () => {
             console.error(error)
         }
     }
+    const deleteFromPlaylist = async (movieId) => {
+        try {
+            const data = await fetch(URL + `/playlists/${nameList}/${userId}/${movieId}`);
+            const dataJson = await data.json();
+            setMovies(dataJson);
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
     useEffect(() => {
         getPlaylistMovies();
 
@@ -58,6 +73,7 @@ const MoviesList = () => {
                         <p className="overview">{eachMovie.overview}</p>
                         <h2 className="release">{eachMovie.releaseDate}</h2>
                         <button onClick={() => addToFavourites(eachMovie._id)}>♥</button>
+                        <button onClick={() => deleteFromPlaylist(eachMovie._id)}>🗑</button>
                     </div>
                 )
             })}

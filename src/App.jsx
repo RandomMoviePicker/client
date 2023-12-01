@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {useState} from "react";
 
 import HomePage from "./pages/HomePage/HomePage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import ProfilePage from "./pages/PlaylistsForm/playlistsForm";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
@@ -28,7 +28,7 @@ function App() {
         <Route path="/favourites" element={<MoviesList /> }/>
 
         <Route
-          path="/profile"
+          path="/playlists"
           element={
             <IsPrivate>
               <ProfilePage />

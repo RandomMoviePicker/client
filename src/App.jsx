@@ -7,16 +7,17 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/PlaylistsForm/playlistsForm";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
+import MoviesList from "./pages/MoviesList/MoviesList";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import RandomMovie from "./pages/RandomMovie/RandomMovie";
 import Filters from "./components/Filters/Filters"
+import { useParams } from "react-router-dom";
 
 function App() {
-  //const [selectedPlaylist, setSelectedPlaylist] = useState("favourites");
-
+   
+  
   return (
     <div className="App">
       <Navbar />
@@ -25,7 +26,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         
-        <Route path="/allPlaylists" element={<AllPlaylists /> }/>
+        <Route path="/allPlaylists" element={<IsPrivate><AllPlaylists   /> </IsPrivate> }/>
+        <Route path="/moviesList/:nameList" element={<IsPrivate><MoviesList  /></IsPrivate> }/>
         
         <Route
           path="/playlists"

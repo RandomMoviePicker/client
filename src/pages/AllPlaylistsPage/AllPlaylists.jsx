@@ -1,46 +1,43 @@
-import {useState, useEffect, useContext} from "react";
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import { Link } from "react-router-dom";
 const URL = import.meta.env.VITE_SERVER_URL;
 
 const AllPlaylists = () => {
-    const [selectedPlaylist, setSelectedPlaylist] = useState("");
-    const [nameList, setNameList] = useState([]);
     const { user } = useContext(AuthContext);
-    console.log(user)
-    const userId = user?._id;
+    const userId = user._id;
+    const [nameList, setNameList] = useState([]);
+    
 
-const getNames = async() =>{
-    console.log("getnames")
-    try{
-        const data = await fetch (URL + "/playlists?userId=" + userId );
-        const dataJson = await data.json();
-        setNameList(dataJson)
-        console.log("1:",dataJson)
-        console.log("2:",nameList)
+    const getNames = async () => {
+        try {
+            const data = await fetch(URL + "/playlists?userId=" + userId);
+            const dataJson = await data.json();
+            setNameList(dataJson)
+
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
-    catch(error){
-        console.error(error);
-    }
-}
-const handleClick = (playlistName) =>{
-    setSelectedPlaylist(playlistName);
-}
+    
 
-useEffect(()=>{
-    getNames();
-},[])
+    useEffect(() => {
+        getNames();
+    }, [])
 
 
-    return(
+    return (
         <div>
-            {nameList.forEach((eachName)=>{
-                return(
+            {nameList.map((eachName) => {
+                return (
 
-                <button key={eachName} onClick={()=>handleClick(eachName)} >{eachName}</button>
-                )            
+                   <Link key={eachName._id} to={`/moviesList/${eachName.name}`}> 
+                  <button>{eachName.name}</button>
+                   </Link>)
             })}
+
             
-         {selectedPlaylist && `You have selected ${selectedPlaylist}`}
         </div>
     )
 }

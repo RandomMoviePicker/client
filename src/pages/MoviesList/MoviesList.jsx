@@ -2,20 +2,24 @@ import "./movieslist.css";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import { useParams } from "react-router-dom";
+
 const URL = import.meta.env.VITE_SERVER_URL;
 
 const MoviesList = () => {
+
     const { user } = useContext(AuthContext);
     const userId = user._id;
-    const [favourites, setFavourites] = useState([]);
+    const [movies, setMovies] = useState([]);
+    const { nameList } = useParams();
 
 
-    const getFavourites = async () => {
-        const data = await fetch(URL + `/movies/favourites/${userId}`);
+    const getPlaylistMovies = async () => {
+        const data = await fetch(URL + `/playlists/${nameList}/${userId}`);
         const dataJson = await data.json();
-        console.log(dataJson)//
-        setFavourites(dataJson);
+        setMovies(dataJson);
     }
+    
     const addToFavourites = async (id) => {
         const movieId = id;
         try {
@@ -32,7 +36,7 @@ const MoviesList = () => {
         }
     }
     useEffect(() => {
-        getFavourites();
+        getPlaylistMovies();
 
 
     }, [])
@@ -40,12 +44,12 @@ const MoviesList = () => {
     return (
 
         <div className="moviesList">
-            {favourites.map((eachMovie) => {
+            {movies?.map((eachMovie) => {
                 return (
                     <div className="movie-card" key={eachMovie._id}>
                         <h1 className="title">{eachMovie.title}</h1>
                         <img className="cover-img" src={eachMovie.imageUrl} alt={eachMovie.title} />
-                        {eachMovie.genre.map((eachGenre, index) => {
+                        {eachMovie.genre?.map((eachGenre, index) => {
                             return (
                                 <h1 key={index}>{eachGenre}</h1>
                             )

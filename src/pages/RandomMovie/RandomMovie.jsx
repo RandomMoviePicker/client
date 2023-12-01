@@ -6,20 +6,18 @@ import { AuthContext } from "../../context/auth.context";
 
 const RandomMovie = () => {
     const { user } = useContext(AuthContext);
-    const userId = null;
+    let userId = null;
     if(user){
-        const userId = user._id;////////////////////////////////
+         userId = user._id;
     }
     const [random, setRandom] = useState("")
 
     const getMovies = async () => {
         try {
-
+            
             const response = await fetch(URL + "/movies/randomMovie")
             const responseJson = await response.json()
             setRandom(responseJson[0])
-            console.log(random)////////////////////////////////null
-
         } catch (error) {
             console.error(error)
         }
@@ -27,6 +25,7 @@ const RandomMovie = () => {
     }
 
     const addToFavourites = async (id) => {
+        console.log("holaaaa")
         const movieId = id;
         try {
             await fetch(URL + "/movies/favourites", {
@@ -50,18 +49,24 @@ const RandomMovie = () => {
     }, [])  
 
     return (
-        <div className="movies-container">
-            <h1>
-            {random.title}
-            </h1>
-            <img src={random.imageUrl}/>
-            <p> Genre: {random.genre?.join(" / ")}</p> 
-            <p>Plot: {random.overview}</p>  
-            <p>{random.releaseDate}</p>  
-            {user &&    //////////////////////////////////////////////////////////////////77
-            <button onClick={() => addToFavourites(random._id)}>♥</button>
+        <>
+        {
+        
+            <div className="movies-container">
+                <h1>
+                {random.title}
+                </h1>
+                <img src={random.imageUrl}/>
+                <p> Genre: {random.genre?.join(" / ")}</p> 
+                <p>Plot: {random.overview}</p>  
+                <p>{random.releaseDate}</p>  
+                {user &&  
+                <button onClick={() => addToFavourites(random._id)}>♥</button>
             }
-        </div>
+            </div>
+           
+        }
+        </>
     )
 }
 

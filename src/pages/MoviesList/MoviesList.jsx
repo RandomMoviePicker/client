@@ -27,7 +27,7 @@ const MoviesList = () => {
     const addToFavourites = async (id) => {
         const movieId = id;
         try {
-            await fetch(URL + "/favourites", {
+            await fetch(URL + "/movies/favourites", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

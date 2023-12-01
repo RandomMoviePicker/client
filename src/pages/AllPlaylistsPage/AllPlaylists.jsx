@@ -20,7 +20,16 @@ const AllPlaylists = () => {
             console.error(error);
         }
     }
-    
+    const handleDelete = async(playlistId) =>{
+        try{
+            await fetch (URL + `/playlists/${playlistId}`, {method:"DELETE"});
+            getNames();
+        }
+        catch(error){
+            console.error(error);
+        }
+        
+    }
 
     useEffect(() => {
         getNames();
@@ -31,10 +40,13 @@ const AllPlaylists = () => {
         <div>
             {nameList.map((eachName) => {
                 return (
-
-                   <Link key={eachName._id} to={`/moviesList/${eachName.name}`}> 
-                  <button>{eachName.name}</button>
-                   </Link>)
+                    <div key={eachName._id}>
+                    <Link  to={`/moviesList/${eachName.name}`}> 
+                      <button>{eachName.name}</button>
+                    </Link>
+                  <button onClick={()=> handleDelete(eachName._id)}>🗑</button>
+                   </div>
+                   )
             })}
 
             

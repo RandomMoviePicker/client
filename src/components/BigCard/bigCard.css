@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+.big-card-container{
+    background-color: rgba(103, 97, 97, 0.452) ;
+    color: white;
+}
+
+.big-card-title{
+    font-family: 'Archivo Black', sans-serif;
+    text-align: center;
+
+}
+
+
+.big-card-img{
+    width: 100%;
+    
+}
+

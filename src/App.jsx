@@ -16,7 +16,7 @@ import Filters from "./components/Filters/Filters"
 import { useParams } from "react-router-dom";
 
 function App() {
-   
+     const [random, setRandom] = useState("")
   
   return (
     <div className="App">
@@ -24,7 +24,7 @@ function App() {
      
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setRandom={setRandom}/>} />
         
         <Route path="/allPlaylists" element={<IsPrivate><AllPlaylists   /> </IsPrivate> }/>
         <Route path="/moviesList/:nameList" element={<IsPrivate><MoviesList  /></IsPrivate> }/>
@@ -41,7 +41,7 @@ function App() {
         <Route 
         path ="/RandomMovie"
         element={
-          <RandomMovie/>
+          <RandomMovie random={random} />
         }
         />
 
@@ -61,7 +61,7 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="/filters" element={<Filters/>}/>
+        <Route path="/filters" element={<Filters setRandom={setRandom}/>}/>
       </Routes>
     </div>
   );

@@ -22,7 +22,7 @@ const AllPlaylists = () => {
     }
     const handleDelete = async(playlistId) =>{
         try{
-            await fetch (URL + `/playlists/${playlistId}`, {method:"DELETE"});
+            await fetch (URL + `/playlists/${playlistId}`, {method:"DELETE" });
             getNames();
         }
         catch(error){

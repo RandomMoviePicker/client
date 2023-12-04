@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import './bigCard.css'
+import { useNavigate } from "react-router-dom";
 const URL = import.meta.env.VITE_SERVER_URL
 
 const BigCard = (props) => {
     const { random, addToFavourites } = props
     const { user } = useContext(AuthContext);
-    const userId = user._id
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
+    const userId = user?._id
 
+    const navigate = useNavigate()
+  
 
     const [playListNames, setPlayListNames] = useState([])
 
@@ -23,17 +26,16 @@ const BigCard = (props) => {
                 eachPlayList => eachPlayList.name !== "favourites"
             )
 
-            
+
             const onlyPlayListNames = filteredPlaylists.map((eachPlayList) => {
                 return eachPlayList.name
             })
             setPlayListNames(onlyPlayListNames)
-            console.log("THIS IS THE ONE THAT WE WANT !!!!!", onlyPlayListNames)
 
         }
         catch (error) {
             console.log(error)
-        };
+        }
 
 
     }
@@ -41,18 +43,22 @@ const BigCard = (props) => {
         if (user) {
             fetchPlaylists()
         }
+        if(!random){
+            navigate("/")
+        }
+       
     }, [])
 
-const addToSelectedPlaylist = (movieId, selectedPlaylist) =>{
-    console.log(selectedPlaylist)
-fetch (URL + "/playlists/addMovie", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ movieId, selectedPlaylist, userId})
-})
-}
+    const addToSelectedPlaylist = (movieId, selectedPlaylist) => {
+        
+        fetch(URL + "/playlists/addMovie", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ movieId, selectedPlaylist, userId })
+        })
+    }
     return (
         <div className="big-card-container">
             <h1 className="big-card-title">{random.title}</h1>
@@ -61,22 +67,29 @@ fetch (URL + "/playlists/addMovie", {
             <p>Plot: {random.overview}</p>
             <p>{random.releaseDate}</p>
             {user &&
-                <button onClick={() => addToFavourites(random._id)}>♥</button> 
-            }
-            {user &&
-                <select  onChange={(e)=> setSelectedPlaylist(e.currentTarget.value)}  name="" id="">
-                    {playListNames.map((eachName, index) => {
-                        return (
-                            <option key={eachName + index} value={eachName} >{eachName}</option>
-                        )
-                    })
-                    }
-                </select>
-            }
+                <>
+                    <button onClick={() => addToFavourites(random._id)}>♥</button>
 
-            {user &&  
-            <button onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist)}>➕</button>
-            }  
+                    {playListNames.length > 0 &&
+                        <>
+
+                            <select onChange={(e) => setSelectedPlaylist(e.currentTarget.value)} name="" id="">
+                                
+                                <option  >.. select playlist</option>
+                                {playListNames.map((eachName, index) => {
+
+                                    return (
+                                        <option key={eachName + index} value={eachName} >{eachName}</option>
+                                    )
+                                })
+                                }
+                            </select>
+
+                            <button onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist)}>➕</button>
+                        </>
+                    }
+                </>
+            }
         </div>
     )
 }

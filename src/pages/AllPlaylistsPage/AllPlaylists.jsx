@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 const URL = import.meta.env.VITE_SERVER_URL;
 
 const AllPlaylists = () => {
     const { user } = useContext(AuthContext);
     const userId = user._id;
     const [nameList, setNameList] = useState([]);
-    
+    const navigate = useNavigate();
 
     const getNames = async () => {
         try {
@@ -28,7 +28,10 @@ const AllPlaylists = () => {
         catch(error){
             console.error(error);
         }
-        
+
+    }
+    const handleEdit = (playlistId,oldName)=>{
+        navigate(`/editPlaylist/${playlistId}/${oldName}`);
     }
 
     useEffect(() => {
@@ -45,6 +48,7 @@ const AllPlaylists = () => {
                       <button>{eachName.name}</button>
                     </Link>
                   <button onClick={()=> handleDelete(eachName._id)}>🗑</button>
+                  <button onClick={()=> handleEdit(eachName._id, eachName.name)}>✏</button>
                    </div>
                    )
             })}

@@ -39,9 +39,7 @@ const handleFormSubmit = async(event) =>{
     }
   }
   catch(error){
-    console.log("catch")
-    console.log(error.response)
-
+    console.error(error)
     setErrorMessage(error.response)
   }
 }

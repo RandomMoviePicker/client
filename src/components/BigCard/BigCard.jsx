@@ -19,16 +19,16 @@ const BigCard = (props) => {
             const playLists = await fetch(URL + `/playlists?userId=${userId}`)
             const playListsJson = await playLists.json()
 
-            const filteredPlaylists = playListsJson.filter(
-                eachPlayList => eachPlayList.name !== "favourites"
+            const filteredPlaylists = playListsJson.filter((eachPlayList) => eachPlayList.name !== "favourites"
             )
 
             
             const onlyPlayListNames = filteredPlaylists.map((eachPlayList) => {
                 return eachPlayList.name
             })
+            console.log("THIS IS THE ONE THAT WE WANT !!!!!", filteredPlaylists)
+            console.log("THIS IS THE ONE THAT WE WANT 2 !!!!!", onlyPlayListNames)
             setPlayListNames(onlyPlayListNames)
-            console.log("THIS IS THE ONE THAT WE WANT !!!!!", onlyPlayListNames)
 
         }
         catch (error) {

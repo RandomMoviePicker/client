@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {useState} from "react";
 import AllPlaylists from "./pages/AllPlaylistsPage/AllPlaylists";
-
+import EditPlaylist from "./pages/EditPlaylist/EditPlaylist";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/PlaylistsForm/playlistsForm";
 import SignupPage from "./pages/SignupPage/SignupPage";
@@ -28,7 +28,8 @@ function App() {
         
         <Route path="/allPlaylists" element={<IsPrivate><AllPlaylists   /> </IsPrivate> }/>
         <Route path="/moviesList/:nameList" element={<IsPrivate><MoviesList  /></IsPrivate> }/>
-        
+        <Route path="/editPlaylist/:playlistId/:oldName" element={<EditPlaylist/>} />
+
         <Route
           path="/playlists"
           element={

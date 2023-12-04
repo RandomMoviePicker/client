@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 const URL = import.meta.env.VITE_SERVER_URL;
 
 const AllPlaylists = () => {
     const { user } = useContext(AuthContext);
     const userId = user._id;
     const [nameList, setNameList] = useState([]);
-    
+    const navigate = useNavigate();
 
     const getNames = async () => {
         try {
@@ -20,15 +20,18 @@ const AllPlaylists = () => {
             console.error(error);
         }
     }
-    const handleDelete = async(playlistId) =>{
+    const handleDelete = async(playlistId, name) =>{
         try{
-            await fetch (URL + `/playlists/${playlistId}`, {method:"DELETE" });
+            await fetch (URL + `/playlists/${playlistId}/${name}`, {method:"DELETE" });
             getNames();
         }
         catch(error){
             console.error(error);
         }
-        
+
+    }
+    const handleEdit = (playlistId,oldName)=>{
+        navigate(`/editPlaylist/${playlistId}/${oldName}`);
     }
 
     useEffect(() => {
@@ -44,7 +47,11 @@ const AllPlaylists = () => {
                     <Link  to={`/moviesList/${eachName.name}`}> 
                       <button>{eachName.name}</button>
                     </Link>
-                  <button onClick={()=> handleDelete(eachName._id)}>🗑</button>
+                    {eachName.name !== "favourites" && 
+                    <>
+                      <button onClick={()=> handleDelete(eachName._id, eachName.name)}>🗑</button>
+                      <button onClick={()=> handleEdit(eachName._id, eachName.name)}>✏</button>
+                  </>}
                    </div>
                    )
             })}

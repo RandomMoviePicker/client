@@ -10,6 +10,20 @@ const RandomMovie = ({random}) => {
     if(user){
         userId = user._id;
     }
+    
+    const fetchPlaylists = async () => {
+        try {
+
+            const playlists = await fetch(URL + `/playLists/?userId=${userId}`)
+            console.log(playlists)
+
+        }
+        catch (error) {
+            console.log(error)
+        };
+
+
+    }
 
     const addToFavourites = async (id) => {
         const movieId = id;

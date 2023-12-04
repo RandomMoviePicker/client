@@ -18,21 +18,14 @@ const BigCard = (props) => {
 
     const fetchPlaylists = async () => {
         try {
-
             const playLists = await fetch(URL + `/playlists?userId=${userId}`)
             const playListsJson = await playLists.json()
-
             const filteredPlaylists = playListsJson.filter((eachPlayList) => eachPlayList.name !== "favourites"
             )
-
-
             const onlyPlayListNames = filteredPlaylists.map((eachPlayList) => {
                 return eachPlayList.name
             })
-            console.log("THIS IS THE ONE THAT WE WANT !!!!!", filteredPlaylists)
-            console.log("THIS IS THE ONE THAT WE WANT 2 !!!!!", onlyPlayListNames)
             setPlayListNames(onlyPlayListNames)
-
         }
         catch (error) {
             console.log(error)
@@ -47,7 +40,6 @@ const BigCard = (props) => {
         if(!random){
             navigate("/")
         }
-       
     }, [])
 
     const addToSelectedPlaylist = (movieId, selectedPlaylist) => {

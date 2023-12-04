@@ -20,9 +20,9 @@ const AllPlaylists = () => {
             console.error(error);
         }
     }
-    const handleDelete = async(playlistId) =>{
+    const handleDelete = async(playlistId, name) =>{
         try{
-            await fetch (URL + `/playlists/${playlistId}`, {method:"DELETE" });
+            await fetch (URL + `/playlists/${playlistId}/${name}`, {method:"DELETE" });
             getNames();
         }
         catch(error){
@@ -47,8 +47,11 @@ const AllPlaylists = () => {
                     <Link  to={`/moviesList/${eachName.name}`}> 
                       <button>{eachName.name}</button>
                     </Link>
-                  <button onClick={()=> handleDelete(eachName._id)}>🗑</button>
-                  <button onClick={()=> handleEdit(eachName._id, eachName.name)}>✏</button>
+                    {eachName.name !== "favourites" && 
+                    <>
+                      <button onClick={()=> handleDelete(eachName._id, eachName.name)}>🗑</button>
+                      <button onClick={()=> handleEdit(eachName._id, eachName.name)}>✏</button>
+                  </>}
                    </div>
                    )
             })}

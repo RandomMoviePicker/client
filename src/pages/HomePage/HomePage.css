@@ -1,7 +1,25 @@
+@keyframes buttonClick {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 .the-big-button {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border: none;
     color: white;
     background-color: red;
@@ -16,20 +34,23 @@
 
 
 .the-big-button:active {
-    box-shadow: 0 0 1px 0 hsla(0, 0%, 0%, 0.06),
-    1px -1px 1px 0 hsla(0, 0%, 0%, 0.08);
-    scale: 1em;
-    transform: translateY(25px);
+
+    animation: buttonClick 0.3s ease;
+
 }
 
 
+.the-big-button:hover {
+    transform: scale(1.1); 
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+  }
 
 
-    .the-big-button-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 40vh ;
-        
-        
-    }
+.the-big-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40vh;
+
+
+}

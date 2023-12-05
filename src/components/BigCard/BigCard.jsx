@@ -60,9 +60,9 @@ const BigCard = (props) => {
         <div className="big-card-container">
             <h1 className="big-card-title">{random.title}</h1>
             <img className="big-card-img" src={random.imageUrl} />
-            <p> Genre: {random.genre?.join(" / ")}</p>
-            <p>Plot: {random.overview}</p>
-            <p>{random.releaseDate}</p>
+            <p className="big-genre"> Genre: {random.genre?.join(" / ")}</p>
+            <p className="big-plot">Plot: {random.overview}</p>
+            <p className="big-date">{random.releaseDate}</p>
             {user &&
                 <>
                     <button onClick={() => addToFavourites(random._id)}>♥</button>

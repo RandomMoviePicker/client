@@ -7,13 +7,21 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   background-color: rgb(50, 50, 50);
   /* background-image: url("./src/assets/bck-img.jpg"); */
-  background-image: url("./src/assets/redcourtain.jpg");
+  background-image: url("./src/assets/redcourtain.jpg");;
   background-repeat: no-repeat;
-  background-size: 100%;
-  /* height: 100vh; */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; 
+  
 }
+
+
+
 
 /* 
 

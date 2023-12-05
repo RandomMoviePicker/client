@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { fetchPlaylists, addToSelectedPlaylist } from "../../utils/fetchAndAddFunctions";
-import arrow from '../../../public/arrow-down.png'
 import "./smallcard.css";
 
 const Smallcard = ({ eachMovie, deleteFromPlaylist }) => {
@@ -30,9 +29,9 @@ const Smallcard = ({ eachMovie, deleteFromPlaylist }) => {
                 <div className="small-card-gradient"></div>
                 <div className="small-card-title-genre-btn-container">
                     <div className="small-card-title-genre-container">
-                        <h1 className="title">{eachMovie.title}</h1>
-                        <p className="big-genre"> Genre: {eachMovie.genre?.join(" / ")}</p>
-                        <p >{eachMovie.releaseDate}</p>
+                        <h3 className="title">{eachMovie.title}</h3>
+                        <p className="medium-text"> Genre: {eachMovie.genre?.join(" / ")}</p>
+                        <p className="medium-text" >{eachMovie.releaseDate}</p>
                     </div>
                     <div className="small-card-arrow">
                         <button className="small-card-btn arrow" onClick={handleClick}>

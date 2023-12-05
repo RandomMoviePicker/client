@@ -1,11 +1,21 @@
 .small-cards-container{
     display: flex;
     justify-content: center;
+   
+
+}
+
+.small-card-overview{
+    margin-top: 5px;
+    margin-left:10px;
+    margin-right:10px;
+    font-size: smaller;
 
 }
 
 .small-card{
     width: 300px;
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +39,7 @@
 
 .small-card-gradient{
     height: 50px;
-    margin-top: -50px;
+    margin-top: -40px;
     background-image: linear-gradient(0deg, #151515 20%, rgba(255, 255, 255, 0) 95%);
 
 }
@@ -49,7 +59,7 @@
 }
 
 .small-card-btn{
-    height: 50px;
+    height: 30px;
     width: 50px;
     background-color:transparent;
     border:none;
@@ -70,6 +80,8 @@
 .small-card-playlist-interaction{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 100px;
 }
 
 .small-card-heart-trash{
@@ -97,4 +109,8 @@
     color: white;
     border-radius: 20px;
     width: 190px;
+}
+
+.medium-text{
+    font-size: 0.9rem;
 }

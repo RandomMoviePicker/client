@@ -46,15 +46,15 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="signup-container">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input className="input" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
-        <input
+        <input className="input"
           type="password"
           name="password"
           value={password}
@@ -62,7 +62,7 @@ function SignupPage() {
         />
 
         <label>Name:</label>
-        <input className="name-input" type="text" name="name" value={name} onChange={handleName} />
+        <input className="input" type="text" name="name" value={name} onChange={handleName} />
 
         <button className="signup-button" type="submit">Sign Up</button>
       </form>

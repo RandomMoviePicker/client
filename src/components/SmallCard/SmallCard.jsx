@@ -1,21 +1,22 @@
 import "./smallcard.css";
 import { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 const URL = import.meta.env.VITE_SERVER_URL
 
 const Smallcard = ({ eachMovie, addToFavourites, deleteFromPlaylist }) => {
+    const { nameList } = useParams()
     const { user } = useContext(AuthContext);
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
     const userId = user?._id
     const [playListNames, setPlayListNames] = useState([])
+    const [repeatedMessage, setRepeatedMessage] = useState("")
 
     const fetchPlaylistsSmallCards = async () => {
         try {
-            console.log("hola")
             const playLists = await fetch(URL + `/playlists?userId=${userId}`)
             const playListsJson = await playLists.json()
-            console.log(playListsJson)
-            const filteredPlaylists = playListsJson.filter((eachPlayList) => eachPlayList.name !== "favourites")
+            const filteredPlaylists = playListsJson.filter((eachPlayList) => eachPlayList.name !== nameList)
             const onlyPlayListNames = filteredPlaylists.map((eachPlayList) => {
                 return eachPlayList.name
             })
@@ -34,16 +35,21 @@ const Smallcard = ({ eachMovie, addToFavourites, deleteFromPlaylist }) => {
         //     navigate("/")
         // }
     }, [])
-
-    const addToSelectedPlaylist = (movieId, selectedPlaylist) => {
+   
+    const addToSelectedPlaylist = async(movieId, selectedPlaylist) => {
         
-        fetch(URL + "/playlists/addMovie", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ movieId, selectedPlaylist, userId })
-        })
+            const response = await fetch(URL + "/playlists/addMovie", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ movieId, selectedPlaylist, userId })
+            })
+            const responseJson = await response.json()
+            console.log(responseJson);
+            if(response.status === 403)
+                setRepeatedMessage(responseJson.message)
+        
     }
 
     return (
@@ -71,6 +77,7 @@ const Smallcard = ({ eachMovie, addToFavourites, deleteFromPlaylist }) => {
                     }
                 </select>
                 <button onClick={() => addToSelectedPlaylist(eachMovie._id, selectedPlaylist)}>➕</button>
+                {repeatedMessage && <p>{repeatedMessage}</p>}
             </div>
         </div>
     )

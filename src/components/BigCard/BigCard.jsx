@@ -9,7 +9,7 @@ const BigCard = (props) => {
     const { user } = useContext(AuthContext);
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
     const userId = user?._id
-
+    const [repeatedMessage, setRepeatedMessage] = useState("")
     const navigate = useNavigate()
   
 
@@ -42,15 +42,19 @@ const BigCard = (props) => {
         }
     }, [])
 
-    const addToSelectedPlaylist = (movieId, selectedPlaylist) => {
+    const addToSelectedPlaylist = async(movieId, selectedPlaylist) => {
         
-        fetch(URL + "/playlists/addMovie", {
+        const response = await fetch(URL + "/playlists/addMovie", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ movieId, selectedPlaylist, userId })
         })
+        const responseJson = await response.json()
+        console.log(responseJson);
+        if(response.status === 403)
+            setRepeatedMessage(responseJson.message)
     }
     return (
         <div className="big-card-container">
@@ -79,6 +83,7 @@ const BigCard = (props) => {
                             </select>
 
                             <button onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist)}>➕</button>
+                            {repeatedMessage && <p>{repeatedMessage}</p>}
                         </>
                     }
                 </>

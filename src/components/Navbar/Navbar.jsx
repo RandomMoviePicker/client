@@ -1,52 +1,46 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../context/auth.context";
+import home from "../../../public/home.png";
+import tv from "../../../public/tv.png";
+import select from "../../../public/select.png";
+import add from "../../../public/agregar.png";
+
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider's `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
+
     <nav className="navbar">
-      <Link to="/">
-        <button>Home</button>
+      <Link to="/" >
+        <div className="icon-box">
+          <img src={home} alt="Home icon" />
+          <h4>Home</h4>
+        </div>
       </Link>
-      
+
       <Link to="/allPlaylists">
-        <button>My ♥</button>
+        <div className="icon-box">
+          <img src={tv} alt="Television icon" />
+          <h4>My lists</h4>
+        </div>
       </Link>
+
       <Link to="/filters">
-        <button>filter</button>
+        <div className="icon-box">
+          <img src={select} alt="Choice icon" />
+          <h4>Filter</h4>
+        </div>
       </Link>
 
-      {isLoggedIn && (
-        <>
-          <button onClick={logOutUser}>Logout</button>
+      <Link to="/playlists">
+        <div className="icon-box">
+          <img src={add} alt="Add icon" />
+          <h4>New List</h4>
+        </div>
+      </Link>
 
-          <Link to="/playlists">
-            <button>➕</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-          </Link>
-
-          <span>{user && user.email}</span>
-        </>
-      )}
-
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
     </nav>
+
   );
 }
 

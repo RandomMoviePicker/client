@@ -1,0 +1,13 @@
+.notSignedin-container{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.notSignedin-text{
+    color:whitesmoke;
+    padding: 5vw;
+
+}

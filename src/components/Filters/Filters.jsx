@@ -30,9 +30,12 @@ const Filters = (props) => {
         navigate("/randomMovie")
         console.log(responsejson)
     }
+    const resetFilters = ()=>{
+        setIncludesGenresArr(genres);
+    }
 
     return (
-        <>
+        <div className='filters-container'>
             <h1 className='title-filters'>FILTERS</h1>
             <div className="container-genres">
                 {
@@ -50,9 +53,11 @@ const Filters = (props) => {
                     })
                 }
             </div>
-
+            <button onClick={() => resetFilters()}>Reset</button>
             <button onClick={() => fetchFiltered()}>Filter</button>
-        </>
+
+
+        </div>
     )
 }
 

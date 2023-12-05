@@ -11,7 +11,9 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import BigCard from "./pages/BigCard/BigCard";
-import Filters from "./components/Filters/Filters"
+import Filters from "./components/Filters/Filters";
+import TopNavbar from "./components/TopNavbar/TopNavbar";
+import NotSignedIn from "./components/notSignedIn/NotSignedIn";
 import "./App.css";
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   
   return (
     <div className="App">
-      <Navbar />
+      <TopNavbar />
       <Routes>
         <Route path="/" element={<HomePage setRandom={setRandom}/>} />
         <Route path="/allPlaylists" element={<IsPrivate><AllPlaylists   /> </IsPrivate> }/>
@@ -30,7 +32,10 @@ function App() {
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>}/>
         <Route path="/filters" element={<IsPrivate><Filters setRandom={setRandom}/> </IsPrivate>}/>
+        <Route path="/notSignedIn" element={<NotSignedIn />}/>
+
       </Routes>
+      <Navbar />
     </div>
   );
 }

@@ -1,0 +1,26 @@
+.topNavbar-btn{
+    border: none;
+    background-color: transparent;
+    padding:0;
+}
+.topnavbar img{
+    height: 50px;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.topnavbar{
+    height: 50px;
+    display: flex;
+    color:white;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.topnavbar span{
+    margin-left: 10px;
+}
+.login-register{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

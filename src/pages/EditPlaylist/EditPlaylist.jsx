@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/auth.context";
+
 const URL = import.meta.env.VITE_SERVER_URL;
 
 
@@ -8,7 +10,8 @@ const EditPlaylist = () =>{
     const {playlistId, oldName} = useParams();
     const [name , setName] = useState(oldName);
     const [errorMessage, setErrorMessage] = useState(undefined);
-  
+    const { user } = useContext(AuthContext);
+    const userId = user._id;
 
     console.log(name,playlistId)
 
@@ -25,16 +28,16 @@ const EditPlaylist = () =>{
         headers: {
           "Content-Type":"application/json",
         },
-        body: JSON.stringify({name, playlistId})
+        body: JSON.stringify({name, playlistId,userId})
         
       });
       if (res.status === 200){
         navigate("/allPlaylists")
       }
-      /*else{
+      else{
         let errorsms = await res.json()
         setErrorMessage(errorsms.message)
-      }*/
+      }
     }
     catch(error){
       console.error(error)

@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {useState} from "react";
 import AllPlaylists from "./pages/AllPlaylistsPage/AllPlaylists";
@@ -11,58 +10,26 @@ import MoviesList from "./pages/MoviesList/MoviesList";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import RandomMovie from "./pages/RandomMovie/RandomMovie";
+import BigCard from "./pages/BigCard/BigCard";
 import Filters from "./components/Filters/Filters"
-import { useParams } from "react-router-dom";
+import "./App.css";
 
 function App() {
-     const [random, setRandom] = useState("")
+  const [random, setRandom] = useState("")
   
   return (
     <div className="App">
       <Navbar />
-     
-
       <Routes>
         <Route path="/" element={<HomePage setRandom={setRandom}/>} />
-        
         <Route path="/allPlaylists" element={<IsPrivate><AllPlaylists   /> </IsPrivate> }/>
         <Route path="/moviesList/:nameList" element={<IsPrivate><MoviesList  /></IsPrivate> }/>
         <Route path="/editPlaylist/:playlistId/:oldName" element={<EditPlaylist/>} />
-
-        <Route
-          path="/playlists"
-          element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
-          }
-        />
-
-        <Route 
-        path ="/RandomMovie"
-        element={
-          <RandomMovie random={random} />
-        }
-        />
-
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
-          }
-        />
-        <Route path="/filters" element={<Filters setRandom={setRandom}/>}/>
+        <Route path="/playlists" element={<IsPrivate> <ProfilePage /> </IsPrivate>}/>
+        <Route path ="/randomMovie"element={<BigCard random={random} />}/>
+        <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>}/>
+        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>}/>
+        <Route path="/filters" element={<IsPrivate><Filters setRandom={setRandom}/> </IsPrivate>}/>
       </Routes>
     </div>
   );

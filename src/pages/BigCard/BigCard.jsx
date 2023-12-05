@@ -43,9 +43,9 @@ const BigCard = ({random}) => {
                                 }
                             </select>
                             <button onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist, userId, setFeedbackMessage)}>➕</button>
-                            {feedbackMessage && <p>{feedbackMessage}</p>}
                         </>
                     }
+                    {feedbackMessage && <p>{feedbackMessage}</p>}
                 </>
             }
         </div>

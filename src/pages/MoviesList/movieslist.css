@@ -1,22 +1,4 @@
 .moviesList{
     width: 100%;
-    background-color: red;
 }
 
-.movie-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.cover-img{
-
-}
-.title{
-
-}
-.overview{
-
-}
-.release{
-    
-}

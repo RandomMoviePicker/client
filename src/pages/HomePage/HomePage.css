@@ -29,6 +29,8 @@
         inset 0 -30px 30px hsla(0, 0%, 0%, .2);
     font-size: 1.7em;
     font-family:'Archivo Black', sans-serif;
+    animation: pulse 1s infinite;
+      transition: .3s;
 
        
 }
@@ -42,12 +44,8 @@
 }
 
 
-.the-big-button:hover {
-   
-animation: pulse 1s infinite;
-  transition: .3s;
-    
-  }
+
+  
 
 
 .the-big-button-container {

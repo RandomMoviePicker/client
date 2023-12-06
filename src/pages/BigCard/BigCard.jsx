@@ -22,6 +22,9 @@ const BigCard = ({ random }) => {
     }, [])
 
     return (<>
+    <div className="big-card-full-container">
+
+   
         <div className="big-card-container">
             <div className="overflow">
                 <h1 className="big-card-title center">{random.title}</h1>
@@ -37,7 +40,7 @@ const BigCard = ({ random }) => {
                         {playListNames.length > 0 &&
                             <>
                                 <select className="select" onChange={(e) => setSelectedPlaylist(e.currentTarget.value)} name="" id="">
-                                    <option  >.. select playlist</option>
+                                    <option >... select playlist</option>
                                     {playListNames.map((eachName, index) => {
                                         return (
                                             <option key={eachName + index} value={eachName} >{eachName}</option>
@@ -53,13 +56,13 @@ const BigCard = ({ random }) => {
                             </>
                         }
                     </div>
-                    {feedbackMessage && <p >{feedbackMessage}</p>}
+                    {feedbackMessage && <p className="info" >{feedbackMessage}</p>}
                 </>
             }
         </div>
 
 
-
+        </div>
     </>
     )
 }

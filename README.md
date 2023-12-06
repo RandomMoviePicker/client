@@ -28,16 +28,16 @@ Vite uses this variable naming convention. The `VITE_` prefix is required. Make 
 
 ## Routes table 
  ____________________________________________________________________________________________________________________________________
-|   Component   |                Path                |                                   Description                                   |
-|---------------|------------------------------------|---------------------------------------------------------------------------------|
-|   LoginPage   |              /login                | Displays the login form                                                         |
-|   SignupPage  |              /signup               | Displays the sign up form                                                       |
-|   HomePage    |              /                     | Displays the home page with the movie picker button                             |
-|   BigCard     |              /randomMovie          | Returns the movie picked from filters or button                                 |
-|   MoviesList  |        /moviesList/:nameList       | Returns the content of the selected playlist                                    |
-|  PlaylistForm |              /playlist             | Displays the form to create a new playlist                                      |
-|  EditPlaylist | /editPlaylist/:playlistId/:oldName | Displays the form to edit the selected playlist                                 |
-|  NotSignedIn  |              /notSignedIn          | Displays a message when a not logged in user selects an only logged in feature  |
-|    Filters    |              /filters              | Displays the page with the genres to filter by                                  |
-|  NotFoundPage |              /*                    | Displays a message when the route doesn't exists                                |
-|_______________|____________________________________|_________________________________________________________________________________|
+|  Component  |               Path                |                                   Description                                   |
+|-------------|-----------------------------------|---------------------------------------------------------------------------------|
+| LoginPage   |             /login                | Displays the login form                                                         |
+| SignupPage  |             /signup               | Displays the sign up form                                                       |
+| HomePage    |             /                     | Displays the home page with the movie picker button                             |
+| BigCard     |             /randomMovie          | Returns the movie picked from filters or button                                 |
+| MoviesList  |       /moviesList/:nameList       | Returns the content of the selected playlist                                    |
+|PlaylistForm |             /playlist             | Displays the form to create a new playlist                                      |
+|EditPlaylist |/editPlaylist/:playlistId/:oldName | Displays the form to edit the selected playlist                                 |
+|NotSignedIn  |             /notSignedIn          | Displays a message when a not logged in user selects an only logged in feature  |
+|  Filters    |             /filters              | Displays the page with the genres to filter by                                  |
+|NotFoundPage |             /*                    | Displays a message when the route doesn't exists                                |
+|_____________|___________________________________|_________________________________________________________________________________|

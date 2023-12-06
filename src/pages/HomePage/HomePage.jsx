@@ -26,7 +26,7 @@ const HomePage = (props) => {
 
   return (
     <div className="the-big-button-container">
-      <button onClick={handleClick} className="the-big-button" >Push!</button>
+      <button onClick={handleClick} className="the-big-button" >PUSH ME !</button>
     </div>
   );
 }

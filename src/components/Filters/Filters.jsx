@@ -35,6 +35,7 @@ const Filters = (props) => {
     }
 
     return (
+        <div className='filters-whole-page-container'>
         <div className='filters-container'>
             <h1 className='title-filters'>FILTERS</h1>
             <div className="container-genres">
@@ -59,6 +60,7 @@ const Filters = (props) => {
             </div>
 
 
+        </div>
         </div>
     )
 }

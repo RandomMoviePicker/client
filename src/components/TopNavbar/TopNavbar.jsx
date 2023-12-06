@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import exit from "../../../public/exit.png";
+import exit from "../../assets/exit.png";
 import "./topNavbar.css";
 
  
@@ -16,7 +16,7 @@ function Navbar() {
       {isLoggedIn && (
         <>
           
-          <span>{user && user.email}</span>
+          <span className="username">{user && user.name}</span>
           <button className="topNavbar-btn" onClick={logOutUser}><img src={exit} alt="exit"/></button>
         </>
       )}

@@ -45,15 +45,15 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-page">
-      
-
+    <div className="signup-container">
+          <div className="form-box">
+          <h1 className="log-in">Log in</h1>
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input className= "email-login" type="email" name="email" value={email} onChange={handleEmail} />
+        <input className= "input" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
-        <input className="password-login"
+        <input className="input"
           type="password"
           name="password"
           value={password}
@@ -62,10 +62,12 @@ function LoginPage() {
 
         <button className="btn btn-primary btn-ghost" type="submit">Login</button>
       </form>
+      
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don{"'"}t have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+    </div>
     </div>
   );
 }

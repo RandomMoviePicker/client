@@ -9,13 +9,10 @@
 form{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    height: 60%;
 }
 
-.login-button{
-margin-top: 25px;
-}
-.btn {
-    padding: 8px 20px;
-    border-radius: 0;
-    overflow: hidden;
+.log-in{
+    margin-top:50px;
 }

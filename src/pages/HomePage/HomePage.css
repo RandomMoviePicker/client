@@ -10,7 +10,12 @@
       transform: scale(1);
     }
   }
-
+.flex-container-homepage{
+  height:60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .the-big-button {
     position: relative;
     display: inline-block;
@@ -31,8 +36,6 @@
     font-family:'Archivo Black', sans-serif;
     animation: pulse 1s infinite;
       transition: .3s;
-
-       
 }
 
 

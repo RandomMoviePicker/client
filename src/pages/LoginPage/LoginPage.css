@@ -15,4 +15,10 @@ form{
 
 .log-in{
     margin-top:50px;
+    padding:0px;
+}
+.small-form{
+    gap:2px;
+justify-content: flex-start;
+
 }

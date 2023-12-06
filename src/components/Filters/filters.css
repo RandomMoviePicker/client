@@ -13,6 +13,7 @@
     font-family: 'Archivo Black', sans-serif;
     display: flex;
     justify-content: center;
+    color:white;
 }
 .container-genres{
  
@@ -28,7 +29,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: rgb(242, 126, 126);
+    background-color: rgb(24, 21, 21,0.8);
     border-radius: 10px;
     color:white;
     margin: 10px;
@@ -65,4 +66,9 @@
     /* width: 20px; 
     height: 20px;  
     */
+  }
+
+  .flex-btns{
+    justify-content: space-around;
+    display: flex;
   }

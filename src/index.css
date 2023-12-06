@@ -40,6 +40,7 @@ body {
   border-color: white;
   border-width: 1px;
 }
+
 .button-small {
   align-items: center;
   box-sizing: border-box;
@@ -53,7 +54,7 @@ body {
   color: #FFFFFF;
   font-size: 1.125rem;
   text-align: center;
-margin-right: 5px;
+  margin-right: 5px;
   justify-content: center;
   border-color: white;
   border-width: 1px;
@@ -105,9 +106,30 @@ margin-right: 5px;
 }
 
 .center {
-align-self: center;
+  align-self: center;
+  text-align: center;
 }
 
-.form-box > form{
+.form-box>form {
   height: 70%;
 }
+
+.small-text {
+  font-size: 0.6em;
+}
+
+.btn-with-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.select{
+  height: 30px;
+  background-color: grey;
+  color: white;
+  border-radius: 20px;
+  width: 190px;
+}
+

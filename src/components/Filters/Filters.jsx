@@ -53,8 +53,10 @@ const Filters = (props) => {
                     })
                 }
             </div>
-            <button className='button' onClick={() => resetFilters()}>Reset</button>
-            <button className='button' onClick={() => fetchFiltered()}>Filter</button>
+            <div className='flex-btns'>
+                <button className='button' onClick={() => fetchFiltered()}>Filter</button>
+                <button className='button' onClick={() => resetFilters()}>Reset</button>
+            </div>
 
 
         </div>

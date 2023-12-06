@@ -1,42 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
-.big-card-container{
-    background-color: rgba(103, 97, 97, 0.452) ;
+.big-card-container {
+    background-color: rgba(103, 97, 97, 0.452);
     color: white;
     margin-top: 5vh;
-    border-radius:15px;
-};
+    border-radius: 15px;
+    padding-bottom: 10px
+}
 
-.big-card-title{
+;
+
+.big-card-title {
     font-family: 'Archivo Black', sans-serif;
     text-align: center;
 
 }
 
 
-.big-card-img{
+.big-card-img {
     width: 100%;
-    border-radius:20px;
-    
+    border-radius: 20px;
+
 }
 
 
-h1{
+h1 {
     margin-bottom: 15px;
 }
 
-.big-genre{
+.big-genre {
     line-height: 20px;
     /* margin-bottom: 10px; */
-    padding:0 15px;
+    padding: 0 15px;
 }
- .big-plot{
+
+.big-plot {
     line-height: 20px;
     /* margin-bottom: 10px; */
     padding: 15px;
- }
- .big-date{
+}
+
+.big-date {
     line-height: 20px;
     /* margin-bottom: 10px; */
     padding: 15px;
- }
+}
+
+.small-card-icon {
+    color: white;
+
+}
+
+.big-card-btn {
+    height: 30px;
+    width: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.big-card-select-and-add {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

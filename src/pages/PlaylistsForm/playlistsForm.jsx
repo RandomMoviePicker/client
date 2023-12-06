@@ -54,10 +54,8 @@ const handleFormSubmit = async(event) =>{
     <div className="form-box">
     {errorMessage ? <h1 className="error-text">{errorMessage}</h1>:<h1 className="error-text">Choose a name for your new list</h1>}
     <form onSubmit={(event)=>handleFormSubmit(event)} className="playlistForm">
-        
         <label htmlFor="name">Name:</label>
         <input className="input" type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
-
         <button className="button center" type="submit">Create playlist</button>
       </form>
       </div>

@@ -18,13 +18,13 @@
     margin-bottom: 10px;
     gap: 10px;
     margin-left: 10px;
-   
 }
 
 .each-playlists-preview-container::-webkit-scrollbar { /* WebKit */
     width: 0;
     height: 0;
 }
+
 
 .playlist-card-btn{
     height: 30px;

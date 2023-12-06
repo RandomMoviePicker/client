@@ -1,0 +1,41 @@
+.allplaylists-small-movie-img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+   
+}
+
+.each-playlists-preview-container{
+    display: flex;
+    background-color: rgb(24,21,21,0.8);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.playlist-card-btn{
+    height: 30px;
+    width: 50px;
+    background-color:transparent;
+    border:none;
+}
+
+.playlist-card-icon{
+    color: white;
+   
+}
+
+.playlist-btn{
+    background-color: rgba(90, 86, 86, 0.8);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.playlist-btn-container{
+    display: flex;
+    flex-direction: column;
+}
+.images-container{
+    display: flex;
+    overflow: hidden;
+}

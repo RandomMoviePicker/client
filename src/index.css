@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: rgb(50, 50, 50);
-  background-image: url("./assets/redcourtain-medium-desaturated.jpg");
+  background-image: url("./assets/redcourtain-medium-desaturated-extradark.jpg");
   background-repeat:repeat-y;
   background-size: cover;
   background-position: center;

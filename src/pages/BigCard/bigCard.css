@@ -4,6 +4,7 @@
     background-color: rgba(103, 97, 97, 0.452) ;
     color: white;
     margin-top: 15vh;
+    border-radius:15px;
 };
 
 .big-card-title{
@@ -15,15 +16,27 @@
 
 .big-card-img{
     width: 100%;
+    border-radius:20px;
     
 }
 
-p{
-    line-height: 20px;
-    margin-bottom: 10px;
-    padding: 15px;
-}
 
 h1{
     margin-bottom: 15px;
 }
+
+.big-genre{
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+ .big-plot{
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+ }
+ .big-date{
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+ }

@@ -1,17 +1,15 @@
-@keyframes buttonClick {
+
+@keyframes pulse {
     0% {
-        transform: scale(1);
+      transform: scale(1);
     }
-
-    50% {
-        transform: scale(1.1);
+    70% {
+      transform: scale(.9);
     }
-
-    100% {
-        transform: scale(1);
+      100% {
+      transform: scale(1);
     }
-}
-
+  }
 
 .the-big-button {
     position: relative;
@@ -33,27 +31,27 @@
 }
 
 
-.the-big-button:active {
-
-    animation: buttonClick 0.3s ease;
-
+.the-big-button:active { 
+    
+    animation: pulse 1s infinite;
+    transition: .3s;
+ 
 }
 
 
 .the-big-button:hover {
-    transform: scale(1.1); 
-    /*background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
-*/
-background-image: url(../../../public/1.jpg);  
-
-}
+   
+animation: pulse 1s infinite;
+  transition: .3s;
+    
+  }
 
 
 .the-big-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40vh;
+    margin-top: 35vh;
 
 
 }

@@ -21,42 +21,46 @@ const BigCard = ({ random }) => {
         }
     }, [])
 
-    return (
+    return (<>
         <div className="big-card-container">
-            <h1 className="big-card-title center">{random.title}</h1>
-            <img className="big-card-img" src={random.imageUrl} />
-            <p className="big-genre"> Genre: {random.genre?.join(" / ")}</p>
-            <p className="big-plot">Plot: {random.overview}</p>
-            <p className="big-date">{random.releaseDate}</p>
+            <div className="overflow">
+                <h1 className="big-card-title center">{random.title}</h1>
+                <img className="big-card-img" src={random.imageUrl} />
+                <p className="big-genre"> Genre: {random.genre?.join(" / ")}</p>
+                <p className="big-plot">Plot: {random.overview}</p>
+                <p className="big-date">{random.releaseDate}</p>
+            </div>
             {user &&
                 <>
                     <div className="big-card-select-and-add">
+                        <button className="big-card-btn" onClick={() => addToSelectedPlaylist(random._id, "favourites", userId, setFeedbackMessage)}><i className="fa-regular fa-heart fa-2xl big-card-icon"></i></button>
+                        {playListNames.length > 0 &&
+                            <>
+                                <select className="select" onChange={(e) => setSelectedPlaylist(e.currentTarget.value)} name="" id="">
+                                    <option  >.. select playlist</option>
+                                    {playListNames.map((eachName, index) => {
+                                        return (
+                                            <option key={eachName + index} value={eachName} >{eachName}</option>
+                                        )
+                                    })
+                                    }
+                                </select>
+                                <div className="btn-with-text">
+                                    <button className="big-card-btn" onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist, userId, setFeedbackMessage)}><i className="fa-solid fa-plus fa-2xl big-card-icon"></i></button>
+                                    <p className="small-text">Add</p>
 
-                   
-                    <button className="big-card-btn" onClick={() => addToSelectedPlaylist(random._id, "favourites", userId, setFeedbackMessage)}><i className="fa-regular fa-heart fa-2xl big-card-icon"></i></button>
-                    {playListNames.length > 0 &&
-                        <>
-                            <select className="select" onChange={(e) => setSelectedPlaylist(e.currentTarget.value)} name="" id="">
-                                <option  >.. select playlist</option>
-                                {playListNames.map((eachName, index) => {
-                                    return (
-                                        <option key={eachName + index} value={eachName} >{eachName}</option>
-                                    )
-                                })
-                                }
-                            </select>
-                            <div className="btn-with-text">
-                                <button className="big-card-btn" onClick={() => addToSelectedPlaylist(random._id, selectedPlaylist, userId, setFeedbackMessage)}><i className="fa-solid fa-plus fa-2xl big-card-icon"></i></button>
-                                <p className="small-text">Add</p>
-
-                            </div>
-                        </>
-                    }
+                                </div>
+                            </>
+                        }
                     </div>
                     {feedbackMessage && <p >{feedbackMessage}</p>}
                 </>
             }
         </div>
+
+
+
+    </>
     )
 }
 export default BigCard

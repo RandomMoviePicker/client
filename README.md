@@ -21,3 +21,17 @@ Remember to update this readme file with your project description and routes.
 |--------|------|-------------|
 | UsersPage | /users | Display all the users|
 | UserDetails | /users/:id | Sends back a single user object |
+
+| LoginPage | /login |
+| SignupPage | /signup |
+| HomePage | / |
+| BigCard | /randomMovie | 
+| MoviesList | /moviesList/:nameList |
+| PlaylistForm | /playlist
+| EditPlaylist | /editPlaylist/:playlistId/:oldName
+| NotSignedIn | /notSignedIn |
+| Filters | /filters |
+| NotFoundPage | /* |
+| 
+|
+|

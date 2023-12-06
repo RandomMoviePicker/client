@@ -1,0 +1,17 @@
+.notFound-container{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+.not-found-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 50px;
+    height: 30%;
+    width: 65%;
+    background-color: rgba(24, 21, 21, 0.8);  
+}

@@ -11,11 +11,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: rgb(50, 50, 50);
-  /* background-image: url("./src/assets/bck-img.jpg"); */
   background-image: url("./src/assets/redcourtain-medium-desaturated.jpg");
-  /* background-image: url("./src/assets/movie.png");
-  background-repeat:repeat-y; */
-  /* height: 100%;  */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

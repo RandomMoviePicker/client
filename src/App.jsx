@@ -14,6 +14,7 @@ import BigCard from "./pages/BigCard/BigCard";
 import Filters from "./components/Filters/Filters";
 import TopNavbar from "./components/TopNavbar/TopNavbar";
 import NotSignedIn from "./components/notSignedIn/NotSignedIn";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import "./App.css";
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>}/>
         <Route path="/filters" element={<IsPrivate><Filters setRandom={setRandom}/> </IsPrivate>}/>
         <Route path="/notSignedIn" element={<NotSignedIn />}/>
-
+        <Route path="/*" element={<NotFoundPage/>}/>
       </Routes>
       <Navbar />
     </div>

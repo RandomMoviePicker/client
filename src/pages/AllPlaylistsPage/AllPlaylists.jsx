@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./allPlaylists.css"
+
 const URL = import.meta.env.VITE_SERVER_URL;
 
 const AllPlaylists = () => {
@@ -13,24 +15,26 @@ const AllPlaylists = () => {
         try {
             const data = await fetch(URL + "/playlists?userId=" + userId);
             const dataJson = await data.json();
+            console.log(dataJson)
             setNameList(dataJson)
 
         }
+
         catch (error) {
             console.error(error);
         }
     }
-    const handleDelete = async(playlistId, name) =>{
-        try{
-            await fetch (URL + `/playlists/${playlistId}/${name}`, {method:"DELETE" });
+    const handleDelete = async (playlistId, name) => {
+        try {
+            await fetch(URL + `/playlists/${playlistId}/${name}`, { method: "DELETE" });
             getNames();
         }
-        catch(error){
+        catch (error) {
             console.error(error);
         }
 
     }
-    const handleEdit = (playlistId,oldName)=>{
+    const handleEdit = (playlistId, oldName) => {
         navigate(`/editPlaylist/${playlistId}/${oldName}`);
     }
 
@@ -43,20 +47,35 @@ const AllPlaylists = () => {
         <div>
             {nameList.map((eachName) => {
                 return (
-                    <div key={eachName._id}>
-                    <Link  to={`/moviesList/${eachName.name}`}> 
-                      <button>{eachName.name}</button>
-                    </Link>
-                    {eachName.name !== "favourites" && 
-                    <>
-                      <button onClick={()=> handleDelete(eachName._id, eachName.name)}>🗑</button>
-                      <button onClick={()=> handleEdit(eachName._id, eachName.name)}>✏</button>
-                  </>}
-                   </div>
-                   )
+                    <div className="each-playlists-preview-container" key={eachName._id}>
+                        <div className="playlist-btn-container">
+                            <Link to={`/moviesList/${eachName.name}`}>
+                                <button className="playlist-btn">{eachName.name}</button>
+                            </Link>
+                            {eachName.name !== "favourites" &&
+                                <>
+                                    <button className="playlist-card-btn playlist-card-icon" onClick={() => handleDelete(eachName._id, eachName.name)}><i class="fa-regular fa-trash-can small-card-icon"></i></button>
+                                    <button  className="playlist-card-btn playlist-card-icon" onClick={() => handleEdit(eachName._id, eachName.name)}><i class="fa-regular fa-pen-to-square"></i></button>
+                                </>}
+                            
+                        </div>
+                        <div className="images-container">
+                            {
+                                eachName.content.map((eachMovie)=>{
+                                    return(
+                                        <div>
+                                            <img className="allplaylists-small-movie-img" src={eachMovie.imageUrl} alt="" />
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
+                )
             })}
 
-            
+
         </div>
     )
 }

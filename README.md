@@ -7,8 +7,8 @@ The rest of the team will clone the forked repository to their local machines as
 
 # About this project:
 
-This app purpose is to select a random movie extract from the TMDB (the movie data base) API, the user can press the big red button on the home page
-and recieve a result or go to filters and discard the genres he/she is not interested in.
+This app purpose is to select a random movie extracted from the TMDB (the movie data base) API, the user can press the big red button on the home page
+and receive a result or go to filters and discard the genres he/she is not interested in.
 
 The app also allows to save the movie results as favourites, and visit its content. He/She also can create new playlist of movies, and customize the name latter, also add and delete movies from it.
 

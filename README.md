@@ -27,8 +27,8 @@ VITE_SERVER_URL=http://localhost:5005
 Vite uses this variable naming convention. The `VITE_` prefix is required. Make sure that the url for the server matches the port that you are using for your it.
 
 ## Routes table 
- ____________________________________________________________________________________________________________________________________
-|  Component  |               Path                |                                   Description                                   |
+ ___________________________________________________________________________________________________________________________________
+|  Component  |               Path                |                         Description                                             |
 |-------------|-----------------------------------|---------------------------------------------------------------------------------|
 | LoginPage   |             /login                | Displays the login form                                                         |
 | SignupPage  |             /signup               | Displays the sign up form                                                       |
@@ -40,4 +40,3 @@ Vite uses this variable naming convention. The `VITE_` prefix is required. Make 
 |NotSignedIn  |             /notSignedIn          | Displays a message when a not logged in user selects an only logged in feature  |
 |  Filters    |             /filters              | Displays the page with the genres to filter by                                  |
 |NotFoundPage |             /*                    | Displays a message when the route doesn't exists                                |
-|_____________|___________________________________|_________________________________________________________________________________|

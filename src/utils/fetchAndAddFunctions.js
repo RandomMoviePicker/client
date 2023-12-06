@@ -27,6 +27,9 @@ const addToSelectedPlaylist = async (movieId, selectedPlaylist, userId, setFeedb
     })
     const responseJson = await response.json()
     setFeedbackMessage(responseJson.message)
+    setTimeout(()=>{
+        setFeedbackMessage("")
+    },3000)
 }
 
 export { fetchPlaylists, addToSelectedPlaylist }

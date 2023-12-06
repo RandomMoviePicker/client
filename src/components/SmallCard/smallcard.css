@@ -1,4 +1,116 @@
-.small-card{
+.small-cards-container{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+   
+
+}
+
+.small-card-overview{
+    margin-top: 5px;
+    margin-left:10px;
+    margin-right:10px;
+    font-size: smaller;
+
+}
+
+.small-card{
+    width: 300px;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: cen;
+    background-color: rgba(114, 107, 107, 0.493);
+    color: white;
+    margin-bottom: 10px;
+    background-color:  #151515;
+}
+
+.small-card-img{
+    width:300px;
+
+}
+.small-card-info-container-description{
+
+    background-image: linear-gradient(0deg, #151515 90%, rgba(255, 255, 255, 0) 100%);
+    margin-top:-50px;
+    
+}
+
+.small-card-gradient{
+    height: 50px;
+    margin-top: -40px;
+    background-image: linear-gradient(0deg, #151515 20%, rgba(255, 255, 255, 0) 95%);
+
+}
+
+.small-card-title-genre-btn-container{
+    display: flex;
+    justify-content: space-between;
+    height:100px;
+   
+}
+
+.small-card-title-genre-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10px;
+}
+
+.small-card-btn{
+    height: 30px;
+    width: 50px;
+    background-color:transparent;
+    border:none;
+}
+
+.small-card-icon{
+    color: white;
+   
+}
+.small-card-arrow
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.small-card-playlist-interaction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.small-card-heart-trash{
+    display: flex;
+    flex-direction: column;
+}
+
+.small-text{
+    font-size: 0.6em;
+}
+.btn-with-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.select-and-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select{
+    height: 30px;
+    background-color: grey;
+    color: white;
+    border-radius: 20px;
+    width: 190px;
+}
+
+.medium-text{
+    font-size: 0.9rem;
 }

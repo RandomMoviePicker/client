@@ -54,15 +54,37 @@ body {
 
 
 .input{
-
+  
+  
+  width:100%;
   height: 40px;
   border-radius: 30px;
 }
-.signup-container{
+
+.signup-container {
+  margin-top: 78px;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: rgb(255, 255, 255);
+  
+  
+  
+}
+.form-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:20px;
+  border-radius: 50px;
+  height: 90%;
+  width: 65%;
+  background-color: rgba(24, 21, 21, 0.8);
+  
+}
+.margin-top{
+  margin-top: 80px;
 }

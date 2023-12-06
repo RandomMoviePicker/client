@@ -47,6 +47,7 @@ function SignupPage() {
 
   return (
     <div className="signup-container">
+    <div className="form-box">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
@@ -63,14 +64,10 @@ function SignupPage() {
 
         <label>Name:</label>
         <input className="input" type="text" name="name" value={name} onChange={handleName} />
-
         <button className="signup-button" type="submit">Sign Up</button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+    </div>
     </div>
   );
 }

@@ -45,8 +45,8 @@ const Smallcard = ({ eachMovie, deleteFromPlaylist }) => {
                 {toggleDescription && <p className="small-card-overview">{eachMovie.overview}</p>}
                 <div className="small-card-playlist-interaction">
                     <div className="small-card-heart-trash">
-                        <button className="small-card-btn" onClick={() => addToSelectedPlaylist(eachMovie._id, "favourites", userId, setFeedbackMessage)}><i class="fa-regular fa-heart small-card-icon"></i></button>
-                        <button className="small-card-btn" onClick={() => deleteFromPlaylist(eachMovie._id)}><i class="fa-regular fa-trash-can small-card-icon"></i></button>
+                        <button className="small-card-btn" onClick={() => addToSelectedPlaylist(eachMovie._id, "favourites", userId, setFeedbackMessage)}><i className="fa-regular fa-heart small-card-icon"></i></button>
+                        <button className="small-card-btn" onClick={() => deleteFromPlaylist(eachMovie._id)}><i className="fa-regular fa-trash-can small-card-icon"></i></button>
                     </div>
                     <div className="select-and-add">
                         <select className="select" onChange={(e) => setSelectedPlaylist(e.currentTarget.value)} name="" id="">
@@ -59,7 +59,7 @@ const Smallcard = ({ eachMovie, deleteFromPlaylist }) => {
                             }
                         </select>
                         <div className="btn-with-text">
-                            <button className="small-card-btn" onClick={() => addToSelectedPlaylist(eachMovie._id, selectedPlaylist, userId, setFeedbackMessage)}><i class="fa-solid fa-plus fa-2xl small-card-icon"></i></button>
+                            <button className="small-card-btn" onClick={() => addToSelectedPlaylist(eachMovie._id, selectedPlaylist, userId, setFeedbackMessage)}><i className="fa-solid fa-plus fa-2xl small-card-icon"></i></button>
                             <p className="small-text">Add</p>
                         </div>
                     </div>

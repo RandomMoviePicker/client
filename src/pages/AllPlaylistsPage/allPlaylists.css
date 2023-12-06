@@ -1,8 +1,14 @@
+.playlists-container{
+    /* background-color: red; */
+    /* overflow-x: hidden; */
+    width: 100vw;
+}
+
 .allplaylists-small-movie-img{
     height: 100px;
     width: 100px;
     object-fit: cover;
-   
+
 }
 
 .each-playlists-preview-container{
@@ -10,6 +16,14 @@
     background-color: rgb(24,21,21,0.8);
     border-radius: 10px;
     margin-bottom: 10px;
+    gap: 10px;
+    margin-left: 10px;
+   
+}
+
+.each-playlists-preview-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 .playlist-card-btn{
@@ -29,13 +43,23 @@
     color: white;
     border-radius: 10px;
     padding: 10px;
+    border:none;
+    width: 100%;
 }
 
 .playlist-btn-container{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 .images-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
-    overflow: hidden;
+    overflow-x: scroll;
+    gap: 10px;
 }

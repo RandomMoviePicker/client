@@ -1,9 +1,9 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import home from "../../../public/home.png";
-import tv from "../../../public/tv.png";
-import select from "../../../public/select.png";
-import add from "../../../public/agregar.png";
+import home from "../../assets/home.png";
+import tv from "../../assets/tv.png";
+import select from "../../assets/select.png";
+import add from "../../assets/agregar.png";
 
 
 function Navbar() {

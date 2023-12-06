@@ -36,26 +36,32 @@ const handleFormSubmit = async(event) =>{
     else{
       let errorsms = await res.json()
       setErrorMessage(errorsms.message)
+      setTimeout(()=>{
+        setErrorMessage("");
+    },2000)
     }
   }
   catch(error){
     console.error(error)
     setErrorMessage(error.response)
+    
   }
 }
 
 
   return (
-    <>
-    {errorMessage && <h1>{errorMessage}</h1>}
+    <div className="signup-container">
+    <div className="form-box">
+    {errorMessage ? <h1 className="error-text">{errorMessage}</h1>:<h1 className="error-text">Choose a name for your new list</h1>}
     <form onSubmit={(event)=>handleFormSubmit(event)} className="playlistForm">
         
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
+        <input className="input" type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
 
-        <button type="submit">Create playlist</button>
+        <button className="margin-top" type="submit">Create playlist</button>
       </form>
-      </>
+      </div>
+      </div>
   );
 }
 

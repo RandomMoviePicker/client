@@ -44,7 +44,7 @@ const AllPlaylists = () => {
 
 
     return (
-        <div>
+        <div className="playlists-container">
             {nameList.map((eachName) => {
                 return (
                     <div className="each-playlists-preview-container" key={eachName._id}>
@@ -54,16 +54,15 @@ const AllPlaylists = () => {
                             </Link>
                             {eachName.name !== "favourites" &&
                                 <>
-                                    <button className="playlist-card-btn playlist-card-icon" onClick={() => handleDelete(eachName._id, eachName.name)}><i class="fa-regular fa-trash-can small-card-icon"></i></button>
-                                    <button  className="playlist-card-btn playlist-card-icon" onClick={() => handleEdit(eachName._id, eachName.name)}><i class="fa-regular fa-pen-to-square"></i></button>
+                                    <button className="playlist-card-btn playlist-card-icon" onClick={() => handleDelete(eachName._id, eachName.name)}><i className="fa-regular fa-trash-can small-card-icon"></i></button>
+                                    <button  className="playlist-card-btn playlist-card-icon" onClick={() => handleEdit(eachName._id, eachName.name)}><i className="fa-regular fa-pen-to-square"></i></button>
                                 </>}
-                            
                         </div>
                         <div className="images-container">
                             {
                                 eachName.content.map((eachMovie)=>{
                                     return(
-                                        <div>
+                                        <div key={eachMovie.imageUrl}>
                                             <img className="allplaylists-small-movie-img" src={eachMovie.imageUrl} alt="" />
                                         </div>
                                     )

@@ -60,7 +60,7 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
-        <button className="login-button" type="submit">Login</button>
+        <button className="btn btn-primary btn-ghost" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

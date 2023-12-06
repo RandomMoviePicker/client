@@ -47,8 +47,8 @@ function LoginPage() {
   return (
     <div className="signup-container">
           <div className="form-box">
-          <h1 className="log-in">Log in</h1>
-      <form className="small-form" onSubmit={handleLoginSubmit}>
+          <h1 className="center">Log in</h1>
+      <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input className= "input" type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -60,7 +60,7 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
-        <button className="btn margin-top" type="submit">Login</button>
+        <button className="button margin-top center" type="submit">Login</button>
       </form>
       
       {errorMessage && <p className="error-message">{errorMessage}</p>}

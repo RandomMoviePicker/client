@@ -10,15 +10,5 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 60%;
-}
-
-.log-in{
-    margin-top:50px;
-    padding:0px;
-}
-.small-form{
-    gap:2px;
-justify-content: flex-start;
-
+    height:60%;
 }

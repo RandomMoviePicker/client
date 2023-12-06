@@ -3,7 +3,7 @@
 .big-card-container{
     background-color: rgba(103, 97, 97, 0.452) ;
     color: white;
-    margin-top: 15vh;
+    margin-top: 5vh;
     border-radius:15px;
 };
 
@@ -27,16 +27,16 @@ h1{
 
 .big-genre{
     line-height: 20px;
-    margin-bottom: 10px;
-    padding: 15px;
+    /* margin-bottom: 10px; */
+    padding:0 15px;
 }
  .big-plot{
     line-height: 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     padding: 15px;
  }
  .big-date{
     line-height: 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     padding: 15px;
  }

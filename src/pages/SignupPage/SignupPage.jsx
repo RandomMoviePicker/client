@@ -48,7 +48,7 @@ function SignupPage() {
   return (
     <div className="signup-container">
     <div className="form-box">
-      <h1>Sign Up</h1>
+      <h1 className="center">Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
@@ -64,7 +64,8 @@ function SignupPage() {
 
         <label>Name:</label>
         <input className="input" type="text" name="name" value={name} onChange={handleName} />
-        <button className="signup-button" type="submit">Sign Up</button>
+        <br />
+        <button className="button center" type="submit">Sign Up</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>

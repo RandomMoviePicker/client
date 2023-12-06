@@ -58,7 +58,7 @@ const handleFormSubmit = async(event) =>{
         <label htmlFor="name">Name:</label>
         <input className="input" type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
 
-        <button className="margin-top" type="submit">Create playlist</button>
+        <button className="button center" type="submit">Create playlist</button>
       </form>
       </div>
       </div>

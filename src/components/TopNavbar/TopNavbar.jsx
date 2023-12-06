@@ -26,11 +26,11 @@ function Navbar() {
          
           <Link to="/signup">
             {" "}
-            <button>Sign Up</button>{" "}
+            <button className="button-small">Sign Up</button>{" "}
           </Link>
           <Link to="/login">
             {" "}
-            <button>Login</button>{" "}
+            <button className="button-small">Login</button>{" "}
           </Link>
         </div>
       )}

@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import "./editPlaylist.css";
 
 const URL = import.meta.env.VITE_SERVER_URL;
 
@@ -43,14 +44,16 @@ const EditPlaylist = () => {
   }
 
   return (
-    <>
-      {errorMessage && <h1>{errorMessage}</h1>}
-      <form onSubmit={(event) => handleEditFormSubmit(event)} className="playlistForm">
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
-        <button type="submit">Edit playlist</button>
-      </form>
-    </>
+    <div className="signup-container">
+      <div className="form-box">
+        {errorMessage && <h1>{errorMessage}</h1>}
+        <form onSubmit={(event) => handleEditFormSubmit(event)} className="playlistForm">
+          <label htmlFor="name">Name:</label>
+          <input className="input" type="text" id="name" name="name" value={name} onChange={(event) => handleInputChange(event)} />
+          <button className="button center" type="submit">Edit playlist</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

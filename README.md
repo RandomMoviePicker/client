@@ -1,5 +1,7 @@
 # PickaMovie: Full Stack Web App
- This project is made using the MERN stack 
+ This project is made using the MERN stack.
+ This is the link to the deployed version:
+ 
 
 # About this project:
 

@@ -29,7 +29,7 @@ function App() {
         <Route path="/moviesList/:nameList" element={<IsPrivate><MoviesList  /></IsPrivate> }/>
         <Route path="/editPlaylist/:playlistId/:oldName" element={<EditPlaylist/>} />
         <Route path="/playlists" element={<IsPrivate> <ProfilePage /> </IsPrivate>}/>
-        <Route path ="/randomMovie"element={<BigCard random={random} />}/>
+        <Route path ="/randomMovie"element={<BigCard random={random} setRandom={setRandom} />}/>
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>}/>
         <Route path="/filters" element={<IsPrivate><Filters setRandom={setRandom}/> </IsPrivate>}/>

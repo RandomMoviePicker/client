@@ -1,7 +1,6 @@
 .playlists-container{
-    /* background-color: red; */
-    /* overflow-x: hidden; */
     width: 100vw;
+    margin-bottom: 10vh;
 }
 
 .allplaylists-small-movie-img{
@@ -18,7 +17,6 @@
     margin-bottom: 10px;
     gap: 10px;
     margin-left: 10px;
-   
 }
 
 .each-playlists-preview-container::-webkit-scrollbar { /* WebKit */

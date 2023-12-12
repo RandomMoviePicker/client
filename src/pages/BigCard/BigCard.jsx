@@ -2,16 +2,29 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { fetchPlaylists, addToSelectedPlaylist } from "../../utils/fetchAndAddFunctions";
-import './bigCard.css'
+import './bigCard.css';
 
-const BigCard = ({ random }) => {
+const URL = import.meta.env.VITE_SERVER_URL
+
+
+const BigCard = ({ random, setRandom }) => {
     const { user } = useContext(AuthContext);
     const userId = user?._id
     const [playListNames, setPlayListNames] = useState([])
     const [feedbackMessage, setFeedbackMessage] = useState("")
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
+    const handleTryAgain = async() => {
+        try {
+            const response = await fetch(URL + "/movies/randomMovie")
+            const responseJson = await response.json()
+            setRandom(responseJson[0])
+          } catch (error) {
+            console.error(error)
+          }
+        
+    }
     useEffect(() => {
         if (user) {
             fetchPlaylists(userId, setPlayListNames, "favourites")
@@ -59,6 +72,7 @@ const BigCard = ({ random }) => {
                     {feedbackMessage && <p className="info" >{feedbackMessage}</p>}
                 </>
             }
+            <button className="button button-try-again" onClick={()=> handleTryAgain()}>Try again</button>
         </div>
 
 

@@ -12,12 +12,12 @@ body {
   flex-wrap: wrap;
   background-color: rgb(50, 50, 50);
   background-image: url("./assets/redcourtain-medium-desaturated-extradark.jpg");
-  background-repeat:repeat-y;
+  background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
   height: 100vh;
   background-repeat: inherit;
-  
+
 }
 
 .button {
@@ -109,7 +109,7 @@ body {
 }
 
 .form-box>form {
-  height: 70%;
+  height: 270px;
 }
 
 .small-text {
@@ -123,11 +123,10 @@ body {
   align-items: center;
 }
 
-.select{
+.select {
   height: 30px;
   background-color: grey;
   color: white;
   border-radius: 20px;
   width: 190px;
 }
-
